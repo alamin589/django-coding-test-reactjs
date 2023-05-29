@@ -1,0 +1,38 @@
+{% extends 'backend/base.html' %}
+
+{% block title %} Create Variant {% endblock %}
+
+{% block content %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Update Product</h1>
+        <a 
+        href="{% url 'product:list.product' %}"
+        class="float-right btn btn-primary">All Product</a>
+    </div>
+
+    <div class="row justify-content-center">
+        <form class="col-md-6" method="post" novalidate>
+            {% csrf_token %}
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">{{ form.title.label }}</label>
+                        {{ form.title }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">{{ form.sku.label }}</label>
+                        {{ form.sku }}
+                    </div>
+                    <div class="form-group form-check">
+                        {{ form.description }}
+                        <label class="form-check-label" for="active">{{ form.description.label }}</label>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
